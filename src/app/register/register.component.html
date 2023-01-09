@@ -1,0 +1,231 @@
+<app-header></app-header>
+<div class="container mt-5 py-5">
+  <div class="row">
+    <div class="col-12 col-sm-8 col-md-6 m-auto">
+      <div class="card border-0 shadow">
+        <div class="card-body">
+          <div class="text-center mt-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="50"
+              height="50"
+              fill="currentColor"
+              class="bi bi-person-circle"
+              viewBox="0 0 16 16"
+            >
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+              <path
+                fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+              />
+            </svg>
+            <h4 class="display-6">Register</h4>
+          </div>
+          <div class="my-3">
+          </div>
+          <form class="form" (submit)="({})" #userForm="ngForm">
+            <div class="col-12 row">
+              <div class="mb-3 col-6">
+                <label for="" class="form-label"
+                  >Name<span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  name="name"
+                  id=""
+                  class="form-control"
+                  placeholder="Name"
+                  aria-describedby="helpId"
+                  [(ngModel)]="registerUserData.name"
+                  required="true"
+                />
+                <span class="text-danger text-xs" *ngIf="validateName">
+                  <small>Name is required</small>
+                </span>
+              </div>
+              <div class="mb-3 col-6">
+                <label for="" class="form-label">Age</label>
+                <input
+                  type="number"
+                  name="age"
+                  id="age"
+                  class="form-control"
+                  placeholder="Age"
+                  aria-describedby="age"
+                  [(ngModel)]="registerUserData.age"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 row">
+              <div class="mb-3 col-6">
+                <label for="" class="form-label"
+                  >Username<span class="text-danger">*</span></label
+                >
+                <input
+                  type="email"
+                  name="username"
+                  id="username"
+                  class="form-control"
+                  placeholder="Username"
+                  aria-describedby="username"
+                  [(ngModel)]="registerUserData.username"
+                  required="true"
+                />
+                <span class="text-danger text-xs" *ngIf="validateUsername">
+                  <small>Username is required</small>
+                </span>
+              </div>
+              <div class="mb-3 col-6">
+                <label for="" class="form-label"
+                  >Password<span class="text-danger">*</span></label
+                >
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  class="form-control"
+                  placeholder="Password"
+                  aria-describedby="helpId"
+                  [(ngModel)]="registerUserData.password"
+                  required="true"
+                />
+                <span class="text-danger text-xs" *ngIf="validatePassword">
+                  <small>Password must be 6 digit long</small>
+                </span>
+              </div>
+            </div>
+
+            <div class="col-12 row">
+              <div class="mb-3 col-6" *ngIf="registerUserData.isCabRider">
+                <label for="" class="form-label">Pan Card</label>
+                <input
+                  type="text"
+                  name="panCard"
+                  id="panCard"
+                  class="form-control"
+                  placeholder="Pan Card"
+                  aria-describedby="Pan Card"
+                  [(ngModel)]="registerUserData.panCard"
+                />
+              </div>
+
+              <div class="mb-3 col-6" *ngIf="registerUserData.isCabRider">
+                <label for="" class="form-label"
+                  >Registration Certificate (RC)<span class="text-danger"
+                    >*</span
+                  ></label
+                >
+                <input
+                  type="text"
+                  name="rc"
+                  id="rc"
+                  class="form-control"
+                  placeholder="Registration Certificate No"
+                  aria-describedby="Registration Certificate"
+                  [(ngModel)]="registerUserData.rc"
+                  required="true"
+                />
+                <span class="text-danger text-xs" *ngIf="validateRc">
+                  <small>RC is required</small>
+                </span>
+              </div>
+            </div>
+
+            <div class="col-12 row">
+              <div class="mb-3 col-6" *ngIf="registerUserData.isCabRider">
+                <label for="" class="form-label"
+                  >DL#<span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  name="dl"
+                  id="dl"
+                  class="form-control"
+                  placeholder="Driving Licence No"
+                  aria-describedby="dl"
+                  [(ngModel)]="registerUserData.dl"
+                  required="true"
+                />
+                <span class="text-danger text-xs" *ngIf="validateDl">
+                  <small>DL is required</small>
+                </span>
+              </div>
+              <div class="mb-3 col-6" *ngIf="registerUserData.isCabRider">
+                <label for="" class="form-label"
+                  >Vehicle<span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  name="vehicle"
+                  id="vehicle"
+                  class="form-control"
+                  placeholder="Vehicle Model"
+                  aria-describedby="Vehicle"
+                  [(ngModel)]="registerUserData.vehicle"
+                  required="true"
+                />
+                <span class="text-danger text-xs" *ngIf="validateVehicle">
+                  <small>Vehicle is required</small>
+                </span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="" class="form-label">Address</label>
+              <input
+                type="text"
+                name="address"
+                id="address"
+                class="form-control"
+                placeholder="41 Block"
+                aria-describedby="helpId"
+                [(ngModel)]="registerUserData.address"
+              />
+            </div>
+            <div class="col-12 row">
+              <div class="mb-3 col-6">
+                <label for="" class="form-label">Referral Code(optional)</label>
+                <input
+                  type="text"
+                  name="referralCode"
+                  id="referralCode"
+                  class="form-control"
+                  placeholder="Referral Code"
+                  aria-describedby="Referral Code"
+                  [(ngModel)]="registerUserData.referralCode"
+                />
+              </div>
+              <div class="col-6">
+                <div class="mb-3">
+                  <div>
+                    <label for="" class="form-label">Cab Rider</label>
+                  </div>
+                  <input
+                    type="checkbox"
+                    name="isCabRider"
+                    id="isCabRider"
+                    placeholder="Engineering"
+                    aria-describedby="helpId"
+                    [(ngModel)]="registerUserData.isCabRider"
+                    class="form-check-input form-control mt-0"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="text-left mt-3">
+              <button
+                class="btn btn-primary form-control"
+                (click)="registerUser()"
+                [disabled]="userForm.invalid"
+              >
+                Register
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
